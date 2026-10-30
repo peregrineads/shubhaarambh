@@ -94,3 +94,53 @@
   .gallery-lightbox-controls { gap: 8px; }
 }
 @media (prefers-reduced-motion: reduce) { .gallery-page *, .gallery-lightbox * { transition-duration: .01ms !important; } }
+
+.gallery-hero-art{z-index:1}
+@media(prefers-reduced-motion:no-preference){.gallery-stamp{animation:gallery-stamp-float 7s ease-in-out infinite}}
+@keyframes gallery-stamp-float{0%,100%{transform:translateY(0) rotate(10deg)}50%{transform:translateY(-10px) rotate(15deg)}}
+
+/* Garlands, fine lines and editorial labels frame the imagery without covering it. */
+.gallery-hero-ornaments { position: absolute; inset: 0; pointer-events: none; color: #bb7e6b; }
+.gallery-hero-branch { position: absolute; width: 145px; height: auto; stroke: currentColor; stroke-width: 1.1; opacity: .65; transform-origin: bottom center; }
+.gallery-hero-branch-one { left: 0; top: 4%; transform: rotate(-24deg); }
+.gallery-hero-branch-two { right: 2%; bottom: 4%; width: 112px; transform: rotate(145deg); opacity: .5; }
+.gallery-hero-note { position: absolute; top: 24%; left: -4%; z-index: 2; color: #a36365; font-size: 8px; font-weight: 700; letter-spacing: .16em; line-height: 1.6; transform: rotate(-8deg); }
+.gallery-hero-note em { font-family: var(--font-serif), Georgia, serif; font-size: 21px; letter-spacing: 0; line-height: 1; }
+.gallery-hero-dots { position: absolute; top: 12%; right: 3%; width: 7px; height: 7px; border-radius: 50%; background: #d89483; box-shadow: -12px 13px 0 -1px #e3bb69, 11px 18px 0 -2px #c88c94; }
+.gallery-collection-ribbon { display: flex; gap: 15px; align-items: center; color: #b77a74; margin: -5px 0 32px; pointer-events: none; }
+.gallery-ribbon-line { height: 1px; background: linear-gradient(90deg, transparent, #d4b6ab); flex: 1; }
+.gallery-ribbon-line:last-child { transform: scaleX(-1); }
+.gallery-ribbon-flower { color: #d58b83; font-size: 20px; line-height: 1; }
+.gallery-ribbon-copy { text-align: center; color: #ad8e8c; font-size: 8px; font-weight: 700; letter-spacing: .18em; line-height: 1.5; }
+.gallery-cta-branch { position: absolute; width: clamp(130px, 16vw, 245px); height: auto; stroke: #edbd72; stroke-width: 1; opacity: .42; pointer-events: none; bottom: -44px; transform-origin: bottom center; }
+.gallery-cta-branch-left { left: 3%; transform: rotate(-20deg); }
+.gallery-cta-branch-right { right: 3%; transform: scaleX(-1) rotate(-20deg); }
+@media(prefers-reduced-motion:no-preference){
+  .gallery-hero-branch-one { animation: gallery-branch-left 9s ease-in-out infinite; }
+  .gallery-hero-branch-two { animation: gallery-branch-right 11s ease-in-out infinite; }
+  .gallery-ribbon-flower { animation: gallery-ribbon-breathe 5s ease-in-out infinite; }
+  .gallery-ribbon-flower:nth-of-type(2) { animation-delay: -2.5s; }
+  .gallery-cta-branch-left { animation: gallery-cta-sway-left 11s ease-in-out infinite; }
+  .gallery-cta-branch-right { animation: gallery-cta-sway-right 13s ease-in-out infinite; }
+}
+@keyframes gallery-branch-left { 0%,100%{transform:rotate(-24deg)} 50%{transform:rotate(-19deg)} }
+@keyframes gallery-branch-right { 0%,100%{transform:rotate(145deg)} 50%{transform:rotate(151deg)} }
+@keyframes gallery-ribbon-breathe { 0%,100%{transform:scale(1);opacity:.7} 50%{transform:scale(1.12);opacity:1} }
+@keyframes gallery-cta-sway-left { 0%,100%{transform:rotate(-20deg)} 50%{transform:rotate(-14deg)} }
+@keyframes gallery-cta-sway-right { 0%,100%{transform:scaleX(-1) rotate(-20deg)} 50%{transform:scaleX(-1) rotate(-14deg)} }
+@media(max-width:800px){.gallery-hero-note{left:0;top:18%}.gallery-cta-branch{opacity:.25}}
+@media(max-width:550px){.gallery-hero-branch{width:100px}.gallery-hero-branch-two{width:78px}.gallery-hero-note{top:18%;left:1%;font-size:7px}.gallery-hero-note em{font-size:17px}.gallery-ribbon-copy{font-size:7px;letter-spacing:.1em}.gallery-collection-ribbon{gap:8px;margin:0 0 25px}.gallery-cta-branch{width:110px;bottom:-30px;opacity:.22}.gallery-cta-branch-left{left:-25px}.gallery-cta-branch-right{right:-25px}}
+
+/* Keep the photograph as the focus while offering a clear, animated preview affordance. */
+.gallery-tile::after { content: ""; position: absolute; inset: 10px; border: 1px solid rgba(255,249,241,.78); opacity: 0; pointer-events: none; transition: opacity .3s ease, inset .4s cubic-bezier(.22,1,.36,1); }
+.gallery-tile-overlay > span:first-child { transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.gallery-tile-arrow { transform: translateY(8px); opacity: .75; transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .3s, background .25s, color .25s; }
+@media (hover: hover) {
+  .gallery-tile:hover::after { inset: 14px; opacity: 1; }
+  .gallery-tile:hover .gallery-tile-overlay > span:first-child { transform: translateY(-5px); }
+  .gallery-tile:hover .gallery-tile-arrow { transform: translateY(0); opacity: 1; }
+}
+.gallery-tile:focus-visible::after { inset: 14px; opacity: 1; }
+.gallery-tile:focus-visible .gallery-tile-overlay > span:first-child { transform: translateY(-5px); }
+.gallery-tile:focus-visible .gallery-tile-arrow { transform: translateY(0); opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .gallery-tile::after, .gallery-tile-overlay > span:first-child, .gallery-tile-arrow { transition: none; transform: none !important; } }

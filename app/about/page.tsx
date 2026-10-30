@@ -1,4 +1,7 @@
+import "../text-hover.css";
 import type { Metadata } from "next";
+import EventMotif from "@/components/decor/EventMotif";
+import InnerAmbience from "@/components/decor/InnerAmbience";
 import Image from "next/image";
 import Link from "next/link";
 import { InnerArticle, InnerReveal, InnerSection } from "@/components/InnerPageMotion";
@@ -25,27 +28,27 @@ const steps = [
 export default function AboutPage() {
   return (
     <main id="main" className="story-page">
-      <section className="story-hero">
+      <section className="story-hero"><InnerAmbience variant="story" />
         <div className="story-hero-copy">
-          <p className="story-eyebrow"><span>✳</span> A LITTLE ABOUT US</p>
-          <h1>Every celebration has a story. <em>We make yours extraordinary.</em></h1>
+          <p className="story-eyebrow"><span><EventMotif kind="flower" /></span> A LITTLE ABOUT US</p>
+          <h1 data-cursor-text="">Every celebration has a story. <em>We make yours extraordinary.</em></h1>
           <p>Thoughtfully imagined. Beautifully brought to life. Always, wonderfully yours.</p>
           <span className="story-hero-index">THE ART OF CELEBRATING &nbsp; / &nbsp; 01</span>
         </div>
         <div className="story-hero-image">
           <Image src="/images/indian-wedding.jpg" alt="A warmly lit wedding celebration set for guests" fill sizes="(max-width: 800px) 100vw, 53vw" priority />
-          <span className="story-image-caption">A BEAUTIFUL BEGINNING <i>✳</i></span>
+          <span className="story-image-caption">A BEAUTIFUL BEGINNING <i><EventMotif kind="flower" /></i></span>
         </div>
       </section>
 
       <section className="story-intro story-wrap">
         <InnerReveal className="story-intro-visual" direction="left">
           <div className="story-intro-photo"><Image src="/images/tablescape.jpg" alt="A wedding table styled with flowers and candlelight" fill sizes="(max-width: 800px) 90vw, 42vw" /></div>
-          <div className="story-round-stamp"><span>MADE WITH HEART</span><b>✳</b><span>MEANT TO BE FELT</span></div>
+          <div className="story-round-stamp"><span>MADE WITH HEART</span><b><EventMotif kind="flower" /></b><span>MEANT TO BE FELT</span></div>
         </InnerReveal>
         <InnerReveal className="story-intro-copy" direction="right" delay={0.12}>
-          <p className="story-eyebrow"><span>✳</span> OUR STORY</p>
-          <h2>The art of bringing <em>people together.</em></h2>
+          <p className="story-eyebrow"><span><EventMotif kind="heart" /></span> OUR STORY</p>
+          <h2 data-cursor-text="">The art of bringing <em>people together.</em></h2>
           <p>Some days deserve to be more than a date on the calendar. They deserve to feel like you: full of warmth, beautiful details and the people who matter most.</p>
           <p>At Shubhaarambh Events, we bring creativity and care to every part of the celebration. From the first idea to the final flourish, we shape personal experiences that let you be present for the moments that matter.</p>
           <div className="story-signature">Beautiful beginnings, <em>lasting memories.</em></div>
@@ -54,18 +57,18 @@ export default function AboutPage() {
 
       <section className="story-values">
         <div className="story-wrap">
-          <InnerReveal><p className="story-eyebrow"><span>✳</span> WHAT GUIDES US</p>
-          <div className="story-values-heading"><h2>Made with intention.<br /><em>Remembered with joy.</em></h2><p>Our philosophy is simple: the most beautiful celebrations are the ones that feel meaningful.</p></div></InnerReveal>
-          <div className="story-value-list">{values.map(([number, line, italic, description], index) => <InnerArticle className="story-value" key={number} direction="left" delay={index * 0.08}><span className="story-value-number">{number} /</span><h3>{line} <em>{italic}</em></h3><p>{description}</p><span className="story-value-star">✳</span></InnerArticle>)}</div>
+          <InnerReveal><p className="story-eyebrow"><span><EventMotif kind="leaf" /></span> WHAT GUIDES US</p>
+          <div className="story-values-heading"><h2 data-cursor-text="">Made with intention.<br /><em>Remembered with joy.</em></h2><p>Our philosophy is simple: the most beautiful celebrations are the ones that feel meaningful.</p></div></InnerReveal>
+          <div className="story-value-list">{values.map(([number, line, italic, description], index) => <InnerArticle className="story-value" key={number} direction="left" delay={index * 0.08}><span className="story-value-number">{number} /</span><h3>{line} <em>{italic}</em></h3><p>{description}</p><span className="story-value-star"><EventMotif kind={index === 0 ? "flower" : index === 1 ? "leaf" : "heart"} /></span></InnerArticle>)}</div>
         </div>
       </section>
 
       <section className="story-process story-wrap">
-        <InnerReveal className="story-process-heading" direction="left"><p className="story-eyebrow"><span>✳</span> HOW IT COMES TOGETHER</p><h2>From a little idea to <em>a beautiful day.</em></h2><p>A celebration is a journey. We’ll be there for every lovely step.</p></InnerReveal>
+        <InnerReveal className="story-process-heading" direction="left"><p className="story-eyebrow"><span><EventMotif kind="party" /></span> HOW IT COMES TOGETHER</p><h2 data-cursor-text="">From a little idea to <em>a beautiful day.</em></h2><p>A celebration is a journey. We’ll be there for every lovely step.</p></InnerReveal>
         <div className="story-steps">{steps.map(([number, title, description], index) => <InnerArticle className="story-step" key={number} direction="right" delay={index * 0.07}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div><b>↗</b></InnerArticle>)}</div>
       </section>
 
-      <InnerSection className="story-cta" direction="scale"><span className="story-cta-star">✳</span><p className="story-eyebrow">A CELEBRATION ONLY YOU COULD DREAM UP</p><h2>Let’s tell your story <em>beautifully.</em></h2><Link href="/contact" className="story-button">LET’S BEGIN <span>↗</span></Link></InnerSection>
+      <InnerSection className="story-cta" direction="scale"><span className="story-cta-star"><EventMotif kind="flower" /></span><p className="story-eyebrow">A CELEBRATION ONLY YOU COULD DREAM UP</p><h2 data-cursor-text="">Let’s tell your story <em>beautifully.</em></h2><Link href="/contact" className="story-button">LET’S BEGIN <span>↗</span></Link></InnerSection>
     </main>
   );
 }

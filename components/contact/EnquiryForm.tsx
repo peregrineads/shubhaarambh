@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import EventMotif from "@/components/decor/EventMotif";
 
 type Fields = { name: string; phone: string; email: string; type: string; location: string; date: string; guests: string; message: string };
 type Errors = Partial<Record<keyof Fields, string>>;
@@ -36,7 +37,7 @@ export default function EnquiryForm() {
   const error = (key: keyof Fields) => errors[key] ? <span className="contact-error" id={`${key}-error`}>{errors[key]}</span> : null;
   const accessibility = (key: keyof Fields) => ({ "aria-required": true as const, "aria-invalid": !!errors[key], "aria-describedby": errors[key] ? `${key}-error` : undefined });
 
-  if (submitted) return <div className="contact-success" role="status"><span>✳</span><p className="contact-kicker">A BEAUTIFUL BEGINNING</p><h3>Thank you for <em>sharing your vision.</em></h3><p>This is a demonstration form, so your enquiry has not been sent. We can’t wait to help bring your celebration to life once contact details are connected.</p><button type="button" onClick={() => { setFields(empty); setSubmitted(false); }}>START AGAIN <span>↗</span></button></div>;
+  if (submitted) return <div className="contact-success" role="status"><span><EventMotif kind="flower" /></span><p className="contact-kicker">A BEAUTIFUL BEGINNING</p><h3>Thank you for <em>sharing your vision.</em></h3><p>This is a demonstration form, so your enquiry has not been sent. We can’t wait to help bring your celebration to life once contact details are connected.</p><button type="button" onClick={() => { setFields(empty); setSubmitted(false); }}>START AGAIN <span>↗</span></button></div>;
 
   return <form className="contact-form" onSubmit={submit} noValidate>
     {Object.keys(errors).length > 0 && <p className="contact-error-summary contact-field-wide" role="alert">Please check the highlighted fields below.</p>}

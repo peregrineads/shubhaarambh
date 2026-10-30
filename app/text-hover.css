@@ -1,0 +1,15 @@
+/* Editorial headings respond to a fine pointer without changing their semantics. */
+@media (hover: hover) and (pointer: fine) {
+  [data-cursor-text], [data-cursor-text] em { transition: color .5s cubic-bezier(.22,1,.36,1); }
+  [data-cursor-text]:hover { color: #ad365a; }
+  [data-cursor-text]:hover em { color: #572348; }
+  .hero [data-cursor-text]:hover, .statement [data-cursor-text]:hover,
+  .journey [data-cursor-text]:hover, .home-cta [data-cursor-text]:hover,
+  .gallery-cta [data-cursor-text]:hover { color: #f4c56d; }
+  .hero [data-cursor-text]:hover em, .statement [data-cursor-text]:hover em,
+  .journey [data-cursor-text]:hover em, .home-cta [data-cursor-text]:hover em,
+  .gallery-cta [data-cursor-text]:hover em { color: #fff9f1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-cursor-text], [data-cursor-text] em { transition: none; }
+}

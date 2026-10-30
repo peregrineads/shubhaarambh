@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, useMotionValueEvent, useReducedMotion, useScroll } from "motion/react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Flower2, Menu, X } from "lucide-react";
 
 const links = [{ href: "/", label: "Home" }, { href: "/gallery", label: "Gallery" }, { href: "/about", label: "About us" }, { href: "/contact", label: "Contact" }];
 
@@ -24,7 +24,7 @@ export default function SiteHeader() {
   }, [open]);
   return <>
     <motion.header className={`site-header${scrolled ? " is-scrolled" : ""}`} initial={reduced ? false : { opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}>
-      <Link href="/" className="brand" onClick={() => setOpen(false)} aria-label="Shubhaarambh Events home"><span className="brand-symbol">✳</span><span>SHUBHAARAMBH<small>EVENTS & CELEBRATIONS</small></span></Link>
+      <Link href="/" className="brand" onClick={() => setOpen(false)} aria-label="Shubhaarambh Events home"><span className="brand-symbol" aria-hidden="true"><Flower2 size={29} strokeWidth={1.4}/></span><span>SHUBHAARAMBH<small>EVENTS & CELEBRATIONS</small></span></Link>
       <nav className="desktop-nav" aria-label="Main navigation">{links.map(link => <Link key={link.href} href={link.href} className={path === link.href ? "active" : ""} aria-current={path === link.href ? "page" : undefined}>{link.label}</Link>)}</nav>
       <Link href="/contact" className="nav-cta">Plan your event <ArrowUpRight size={15} /></Link>
       <button className="menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close navigation" : "Open navigation"}>{open ? <X /> : <Menu />}</button>

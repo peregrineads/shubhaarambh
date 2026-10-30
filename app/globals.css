@@ -12,3 +12,5 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
 @media (prefers-reduced-motion: reduce) { .home-reveal, .inner-reveal, .gallery-reveal, .gallery-grid, .gallery-tile, .footer-reveal, .site-header { opacity: 1 !important; transform: none !important; } }
+
+.brand-symbol,.footer-brand>span{display:inline-flex;align-items:center}.footer-bottom span:last-child svg{display:inline-block;vertical-align:middle;margin-left:5px;color:var(--coral)}

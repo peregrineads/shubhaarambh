@@ -1,0 +1,23 @@
+/* Decorative, non-interactive layers for the inner page heroes. */
+.inner-ambience{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;color:#c46b79}
+.inner-ambience-pointer{position:absolute;inset:0}
+.inner-ambience-orbit{position:absolute;width:clamp(150px,19vw,280px);aspect-ratio:1;border:1px solid currentColor;border-radius:50%;opacity:.2;left:-7%;bottom:-13%}
+.inner-ambience-orbit:before,.inner-ambience-orbit:after{content:"";position:absolute;inset:15%;border:1px solid currentColor;border-radius:50%}
+.inner-ambience-orbit:after{inset:31%}
+.inner-ambience-orbit i{position:absolute;width:8px;height:8px;background:currentColor;border-radius:50%;top:12%;left:14%}
+.inner-ambience-flower{position:absolute;left:40%;bottom:8%;font-family:Georgia,serif;font-size:clamp(35px,4vw,60px);opacity:.42;line-height:1}
+.inner-ambience-sparkle{position:absolute;left:45%;top:22%;font-size:19px;opacity:.42;line-height:1}
+.inner-ambience-dot{position:absolute;left:36%;top:26%;width:7px;height:7px;border-radius:50%;background:#e8a659;opacity:.7}
+.inner-ambience--gallery .inner-ambience-flower{left:46%;bottom:12%}
+.inner-ambience--gallery .inner-ambience-orbit{left:42%;bottom:-22%;width:180px}
+.inner-ambience--contact .inner-ambience-flower{left:45%;bottom:15%;color:#e0a344}
+@media(prefers-reduced-motion:no-preference){
+  .inner-ambience-orbit{animation:inner-orbit 26s linear infinite}
+  .inner-ambience-flower{animation:inner-float 6s ease-in-out infinite}
+  .inner-ambience-sparkle{animation:inner-twinkle 4s ease-in-out infinite}
+  .inner-ambience-dot{animation:inner-twinkle 5s 1s ease-in-out infinite}
+}
+@keyframes inner-orbit{to{transform:rotate(360deg)}}
+@keyframes inner-float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(18deg)}}
+@keyframes inner-twinkle{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:.7;transform:scale(1.2)}}
+@media(max-width:800px){.inner-ambience-flower{left:auto!important;right:8%;top:130px;bottom:auto;font-size:34px;opacity:.25}.inner-ambience-sparkle,.inner-ambience-dot{display:none}.inner-ambience-orbit{left:-24%!important;bottom:auto!important;top:190px;width:150px!important;opacity:.12}}

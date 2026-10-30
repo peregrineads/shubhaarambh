@@ -1,0 +1,26 @@
+/* A quiet layer of moving celebration details, kept separate from content and controls. */
+.hero-content,.hero-side,.scroll-cue,.hero-index{z-index:2}
+.home-atmosphere{position:absolute;z-index:1;right:8%;top:27%;width:240px;height:240px;pointer-events:none;color:#f9d797}
+.atmosphere-orbit{position:absolute;inset:25px;border:1px solid rgba(255,225,177,.52);border-radius:50%;animation:atmosphere-spin 26s linear infinite}
+.atmosphere-orbit:before,.atmosphere-orbit:after{content:"";position:absolute;border:1px solid rgba(255,225,177,.24);border-radius:50%;inset:11px}
+.atmosphere-orbit:after{inset:-12px;border-style:dashed;opacity:.55}
+.atmosphere-orbit span{position:absolute;top:-16px;left:50%;font-style:normal;font-size:25px;line-height:1;color:#f7c76f;text-shadow:0 0 18px #f4b544}
+.atmosphere-spark{position:absolute;display:block;font-style:normal;line-height:1;color:#f9d797;text-shadow:0 0 20px rgba(255,195,104,.8);animation:atmosphere-twinkle 4s ease-in-out infinite}
+.atmosphere-spark-one{top:4px;left:24px;font-size:20px}
+.atmosphere-spark-two{right:-2px;top:95px;font-size:28px;animation-delay:-1.4s}
+.atmosphere-spark-three{bottom:5px;left:50px;font-size:13px;animation-delay:-2.5s}
+.atmosphere-caption{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;font-size:8px;font-weight:700;letter-spacing:.2em;line-height:1.4}
+.atmosphere-caption span{font-size:7px;opacity:.75;letter-spacing:.16em}
+.round-stamp{animation:atmosphere-stamp 28s linear infinite}
+.journey-star{animation:atmosphere-twinkle 4.5s ease-in-out infinite}
+.journey-list>div:nth-child(2) .journey-star{animation-delay:-1.5s}
+.journey-list>div:nth-child(3) .journey-star{animation-delay:-3s}
+.cta-flower-left{animation:atmosphere-sway 14s ease-in-out infinite}
+.cta-flower-right{animation:atmosphere-sway 18s ease-in-out infinite reverse}
+@keyframes atmosphere-spin{to{transform:rotate(360deg)}}
+@keyframes atmosphere-stamp{from{transform:rotate(-15deg)}to{transform:rotate(345deg)}}
+@keyframes atmosphere-twinkle{0%,100%{opacity:.55;transform:scale(.85)}50%{opacity:1;transform:scale(1.12)}}
+@keyframes atmosphere-sway{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(10deg) scale(1.08)}}
+@media(max-width:900px){.home-atmosphere{width:160px;height:160px;right:7%;top:29%;opacity:.65}.atmosphere-orbit{inset:20px}.atmosphere-caption{font-size:6px}.atmosphere-caption span{font-size:5px}.atmosphere-spark-two{top:65px}}
+@media(max-width:600px){.home-atmosphere{right:-25px;top:14%;width:130px;height:130px;opacity:.5}.atmosphere-orbit{inset:16px}.atmosphere-caption{display:none}.atmosphere-spark-two{top:45px}}
+@media(prefers-reduced-motion:reduce){.round-stamp,.journey-star,.cta-flower-left,.cta-flower-right,.atmosphere-orbit,.atmosphere-spark{animation:none!important}.home-atmosphere{transform:none!important}}

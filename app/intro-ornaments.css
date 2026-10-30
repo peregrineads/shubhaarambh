@@ -1,0 +1,35 @@
+/* A botanical frame, deliberately tucked around the photographs rather than over the copy. */
+.intro-visual{isolation:isolate}
+.intro-main,.intro-small,.round-stamp{z-index:1}
+.intro-ornaments{position:absolute;inset:-30px -30px -30px -25px;z-index:2;pointer-events:none;color:#c97772}
+.intro-flourish{position:absolute;width:170px;height:170px;opacity:.78;overflow:visible;transform-origin:center}
+.intro-flourish-top{right:-52px;top:-40px;transform:rotate(18deg)}
+.intro-flourish-bottom{left:-52px;bottom:-48px;color:#d5a15b;transform:rotate(196deg)}
+.intro-thread{position:absolute;border:1px solid #d2a88f;border-radius:50%;opacity:.48}
+.intro-thread-one{width:175px;height:175px;left:1%;top:3%;border-style:dashed}
+.intro-thread-two{width:202px;height:202px;left:-1%;top:1%;border-color:#e8c9b8}
+.intro-petal{position:absolute;width:12px;height:18px;border-radius:100% 0 100% 0;background:#e8a4a4;opacity:.7}
+.intro-petal-one{top:10%;left:32%;transform:rotate(-34deg)}
+.intro-petal-two{top:25%;left:25%;width:8px;height:13px;background:#edbc6d;transform:rotate(32deg)}
+.intro-petal-three{bottom:13%;right:3%;width:9px;height:15px;transform:rotate(41deg)}
+.intro-petal-four{bottom:29%;left:6%;width:7px;height:11px;background:#d7b5d5;transform:rotate(-18deg)}
+.intro-side-caption{position:absolute;right:-8px;top:31%;writing-mode:vertical-rl;font:700 8px var(--font-sans),sans-serif;letter-spacing:.18em;color:#fff9f1;text-shadow:0 1px 8px #32182c80;display:flex;align-items:center;gap:12px}
+.intro-side-caption i{width:1px;height:30px;background:currentColor;opacity:.7}
+.intro-photo-tag{position:absolute;right:4%;bottom:6%;display:flex;flex-direction:column;justify-content:center;gap:5px;width:170px;min-height:70px;padding:13px 17px;background:#f4b544;color:#572348;box-shadow:0 8px 24px #5723481c;transform:rotate(5deg)}
+.intro-photo-tag b{font:800 8px var(--font-sans),sans-serif;letter-spacing:.13em}
+.intro-photo-tag em{font:italic 22px/.9 var(--font-serif),serif;white-space:nowrap}
+@media(prefers-reduced-motion:no-preference){
+ .intro-flourish-top{animation:intro-flourish-top 9s ease-in-out infinite}
+ .intro-flourish-bottom{animation:intro-flourish-bottom 10s ease-in-out infinite}
+ .intro-thread-one{animation:intro-orbit 32s linear infinite}
+ .intro-petal-one,.intro-petal-three{animation:intro-petal-float 5s ease-in-out infinite}
+ .intro-petal-two,.intro-petal-four{animation:intro-petal-float 6s -2s ease-in-out infinite}
+ .intro-photo-tag{animation:intro-tag-sway 7s ease-in-out infinite}
+}
+@keyframes intro-flourish-top{0%,100%{transform:rotate(18deg)}50%{transform:rotate(25deg) translateY(-6px)}}
+@keyframes intro-flourish-bottom{0%,100%{transform:rotate(196deg)}50%{transform:rotate(204deg) translateY(-5px)}}
+@keyframes intro-orbit{to{transform:rotate(360deg)}}
+@keyframes intro-petal-float{0%,100%{translate:0 0;opacity:.45}50%{translate:3px -10px;opacity:.9}}
+@keyframes intro-tag-sway{0%,100%{transform:rotate(5deg)}50%{transform:rotate(2deg) translateY(-5px)}}
+@media(max-width:900px){.intro-flourish{width:125px;height:125px}.intro-flourish-top{right:-25px;top:-24px}.intro-flourish-bottom{left:-35px;bottom:-30px}.intro-thread-one{width:125px;height:125px}.intro-thread-two{width:145px;height:145px}.intro-photo-tag{right:3%;bottom:5%;width:145px;min-height:57px;padding:10px 12px}.intro-photo-tag b{font-size:7px}.intro-photo-tag em{font-size:18px}}
+@media(max-width:600px){.intro-ornaments{inset:-15px -12px -15px -10px}.intro-flourish-top{right:-12px;top:-28px;width:110px;height:110px}.intro-flourish-bottom{left:-20px;bottom:-20px;width:100px;height:100px}.intro-thread-one{width:105px;height:105px;left:0;top:4%}.intro-thread-two{width:120px;height:120px;left:-2%;top:2%}.intro-side-caption{font-size:6px;right:3%;top:27%;gap:6px}.intro-side-caption i{height:18px}.intro-photo-tag{right:3%;bottom:5%;width:140px}}
