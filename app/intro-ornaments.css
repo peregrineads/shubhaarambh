@@ -33,3 +33,13 @@
 @keyframes intro-tag-sway{0%,100%{transform:rotate(5deg)}50%{transform:rotate(2deg) translateY(-5px)}}
 @media(max-width:900px){.intro-flourish{width:125px;height:125px}.intro-flourish-top{right:-25px;top:-24px}.intro-flourish-bottom{left:-35px;bottom:-30px}.intro-thread-one{width:125px;height:125px}.intro-thread-two{width:145px;height:145px}.intro-photo-tag{right:3%;bottom:5%;width:145px;min-height:57px;padding:10px 12px}.intro-photo-tag b{font-size:7px}.intro-photo-tag em{font-size:18px}}
 @media(max-width:600px){.intro-ornaments{inset:-15px -12px -15px -10px}.intro-flourish-top{right:-12px;top:-28px;width:110px;height:110px}.intro-flourish-bottom{left:-20px;bottom:-20px;width:100px;height:100px}.intro-thread-one{width:105px;height:105px;left:0;top:4%}.intro-thread-two{width:120px;height:120px;left:-2%;top:2%}.intro-side-caption{font-size:6px;right:3%;top:27%;gap:6px}.intro-side-caption i{height:18px}.intro-photo-tag{right:3%;bottom:5%;width:140px}}
+
+/* Anniversary badge: only the outer lettering turns; the milestone stays still. */
+.intro-visual .round-stamp{animation:none;transform:none;display:block;overflow:visible;background:rgba(255,249,241,.92);border-color:#d7b4a4}
+.anniversary-ring{position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);overflow:visible;fill:#845364;font:700 8.5px var(--font-sans),sans-serif;letter-spacing:.08em;transform-origin:center}
+.anniversary-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;color:#572348}
+.intro-visual .round-stamp .anniversary-center b{font:500 56px/.8 var(--font-serif),serif;letter-spacing:-.06em;color:#d67578}
+.anniversary-center span{font:800 8px/1 var(--font-sans),sans-serif;letter-spacing:.18em;margin-top:7px}
+@media(prefers-reduced-motion:no-preference){.anniversary-ring{animation:anniversary-lettering 28s linear infinite}}
+@keyframes anniversary-lettering{to{transform:rotate(360deg)}}
+@media(max-width:600px){.intro-visual .round-stamp .anniversary-center b{font-size:40px}.anniversary-center span{font-size:6px;margin-top:5px}}

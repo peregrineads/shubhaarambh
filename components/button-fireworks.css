@@ -4,7 +4,13 @@
 .firework-core{position:absolute;width:8px;height:8px;left:-4px;top:-4px;border-radius:50%;background:#fff6cd;box-shadow:0 0 9px 3px #f4b544;animation:firework-core 1.8s ease-out infinite}
 .firework-ray{--firework-angle:0deg;--firework-color:#f56b70;position:absolute;left:-2px;top:-5px;width:4px;height:10px;border-radius:99px;background:var(--firework-color);box-shadow:0 0 5px var(--firework-color);transform:rotate(var(--firework-angle));opacity:0;animation:firework-ray 1.8s cubic-bezier(.15,.65,.3,1) infinite}
 .button-firework-right .firework-core,.button-firework-right .firework-ray{animation-delay:.28s}
+.button-fireworks.is-touch .firework-core,.button-fireworks.is-touch .firework-ray{animation-duration:1.2s;animation-iteration-count:1;animation-fill-mode:both}
+.button-fireworks.is-touch .firework-core{animation-name:firework-core-touch}
+.button-fireworks.is-touch .firework-ray{animation-name:firework-ray-touch}
 .firework-ray-0{--firework-angle:0deg;--firework-color:#f4b544}.firework-ray-1{--firework-angle:30deg;--firework-color:#f56b70}.firework-ray-2{--firework-angle:60deg;--firework-color:#c7b4e5}.firework-ray-3{--firework-angle:90deg;--firework-color:#f4b544}.firework-ray-4{--firework-angle:120deg;--firework-color:#f56b70}.firework-ray-5{--firework-angle:150deg;--firework-color:#c7b4e5}.firework-ray-6{--firework-angle:180deg;--firework-color:#f4b544}.firework-ray-7{--firework-angle:210deg;--firework-color:#f56b70}.firework-ray-8{--firework-angle:240deg;--firework-color:#c7b4e5}.firework-ray-9{--firework-angle:270deg;--firework-color:#f4b544}.firework-ray-10{--firework-angle:300deg;--firework-color:#f56b70}.firework-ray-11{--firework-angle:330deg;--firework-color:#c7b4e5}
 @keyframes firework-ray{0%{opacity:0;transform:rotate(var(--firework-angle)) translateY(0) scale(.4)}9%{opacity:1}40%{opacity:1}70%,100%{opacity:0;transform:rotate(var(--firework-angle)) translateY(-38px) scale(.5)}}
 @keyframes firework-core{0%{opacity:0;transform:scale(.3)}9%{opacity:1;transform:scale(1.3)}35%,100%{opacity:0;transform:scale(.4)}}
 @media(prefers-reduced-motion:reduce){.button-fireworks{display:none}}
+
+@keyframes firework-ray-touch{0%{opacity:1;transform:rotate(var(--firework-angle)) translateY(0) scale(.5)}40%{opacity:1}75%,100%{opacity:0;transform:rotate(var(--firework-angle)) translateY(-38px) scale(.5)}}
+@keyframes firework-core-touch{0%{opacity:1;transform:scale(1)}35%,100%{opacity:0;transform:scale(.4)}}

@@ -14,3 +14,26 @@
 @media (prefers-reduced-motion: reduce) { .home-reveal, .inner-reveal, .gallery-reveal, .gallery-grid, .gallery-tile, .footer-reveal, .site-header { opacity: 1 !important; transform: none !important; } }
 
 .brand-symbol,.footer-brand>span{display:inline-flex;align-items:center}.footer-bottom span:last-child svg{display:inline-block;vertical-align:middle;margin-left:5px;color:var(--coral)}
+
+/* Keep the hero content in flow so the scroll cue has a reserved area even on short screens. */
+.hero{height:auto;max-height:none;min-height:clamp(720px,100svh,900px);display:flex;align-items:center;padding:135px 8% 130px}
+.hero-content{position:relative;left:auto;right:auto;top:auto;width:100%}
+@media(max-width:600px){.hero{height:auto;max-height:none;min-height:clamp(720px,100svh,900px);padding:125px 7% 125px}.hero-content{left:auto;right:auto;top:auto}}
+@media(max-height:760px) and (min-width:901px){
+  .hero{min-height:100svh;padding-top:110px;padding-bottom:110px}
+  .hero h1{font-size:clamp(58px,min(6.4vw,10.4svh),103px)}
+  .hero-kicker{margin-bottom:18px}
+  .hero-bottom{margin-top:24px}
+}
+.locations{overflow-x:clip}
+@media(max-width:600px) and (max-height:720px){
+  .hero{min-height:100svh;padding-top:100px;padding-bottom:95px}
+  .hero h1{font-size:clamp(44px,11.6vw,52px)}
+  .hero-kicker{margin-bottom:15px}
+  .hero-bottom{margin-top:18px}
+  .hero-bottom p{line-height:1.65}
+  .hero-actions{margin-top:18px;gap:14px}
+  .hero-actions .button{min-height:50px}
+  .scroll-cue{bottom:25px}
+  .hero-index{bottom:33px}
+}
